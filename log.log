@@ -1,0 +1,70 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for br.com.marcospcruz:controleestoque:jar:1.0-SNAPSHOT
+[WARNING] 'dependencies.dependency.type' for antlr:antlr:jar must be 'pom' to import the managed dependencies. @ line 31, column 15
+[WARNING] 'dependencies.dependency.type' for commons-beanutils:commons-beanutils:jar must be 'pom' to import the managed dependencies. @ line 37, column 15
+[WARNING] 'dependencies.dependency.type' for commons-collections:commons-collections:jar must be 'pom' to import the managed dependencies. @ line 43, column 15
+[WARNING] 'dependencies.dependency.type' for commons-digester:commons-digester:jar must be 'pom' to import the managed dependencies. @ line 49, column 15
+[WARNING] 'dependencies.dependency.type' for commons-logging:commons-logging:jar must be 'pom' to import the managed dependencies. @ line 55, column 15
+[WARNING] 'dependencies.dependency.type' for dom4j:dom4j:jar must be 'pom' to import the managed dependencies. @ line 61, column 15
+[WARNING] 'dependencies.dependency.type' for hibernate-commons-annotations:hibernate-commons-annotations:jar must be 'pom' to import the managed dependencies. @ line 67, column 15
+[WARNING] 'dependencies.dependency.type' for hibernate-core:hibernate-core:jar must be 'pom' to import the managed dependencies. @ line 73, column 15
+[WARNING] 'dependencies.dependency.type' for hibernate-entitymanager:hibernate-entitymanager:jar must be 'pom' to import the managed dependencies. @ line 80, column 15
+[WARNING] 'dependencies.dependency.type' for hibernate-jpa:hibernate-jpa:jar must be 'pom' to import the managed dependencies. @ line 87, column 15
+[WARNING] 'dependencies.dependency.type' for iText:iText:jar must be 'pom' to import the managed dependencies. @ line 93, column 15
+[WARNING] 'dependencies.dependency.type' for jasperreports:jasperreports:jar must be 'pom' to import the managed dependencies. @ line 99, column 15
+[WARNING] 'dependencies.dependency.type' for javassist:javassist:jar must be 'pom' to import the managed dependencies. @ line 105, column 15
+[WARNING] 'dependencies.dependency.type' for jboss-logging:jboss-logging:jar must be 'pom' to import the managed dependencies. @ line 111, column 15
+[WARNING] 'dependencies.dependency.type' for jboss-transaction-api_1.1_spec:jboss-transaction-api_1.1_spec:jar must be 'pom' to import the managed dependencies. @ line 117, column 15
+[WARNING] 'dependencies.dependency.type' for joda-time:joda-time:jar must be 'pom' to import the managed dependencies. @ line 123, column 15
+[WARNING] 'dependencies.dependency.type' for my-fonts:my-fonts:jar must be 'pom' to import the managed dependencies. @ line 129, column 15
+[WARNING] 'dependencies.dependency.scope' for antlr:antlr:jar must be one of [provided, compile, runtime, test, system] but is 'import'. @ line 35, column 11
+[WARNING] 'dependencies.dependency.scope' for commons-beanutils:commons-beanutils:jar must be one of [provided, compile, runtime, test, system] but is 'import'. @ line 41, column 11
+[WARNING] 'dependencies.dependency.scope' for commons-collections:commons-collections:jar must be one of [provided, compile, runtime, test, system] but is 'import'. @ line 47, column 11
+[WARNING] 'dependencies.dependency.scope' for commons-digester:commons-digester:jar must be one of [provided, compile, runtime, test, system] but is 'import'. @ line 53, column 11
+[WARNING] 'dependencies.dependency.scope' for commons-logging:commons-logging:jar must be one of [provided, compile, runtime, test, system] but is 'import'. @ line 59, column 11
+[WARNING] 'dependencies.dependency.scope' for dom4j:dom4j:jar must be one of [provided, compile, runtime, test, system] but is 'import'. @ line 65, column 11
+[WARNING] 'dependencies.dependency.scope' for hibernate-commons-annotations:hibernate-commons-annotations:jar must be one of [provided, compile, runtime, test, system] but is 'import'. @ line 71, column 11
+[WARNING] 'dependencies.dependency.scope' for hibernate-core:hibernate-core:jar must be one of [provided, compile, runtime, test, system] but is 'import'. @ line 77, column 11
+[WARNING] 'dependencies.dependency.scope' for hibernate-entitymanager:hibernate-entitymanager:jar must be one of [provided, compile, runtime, test, system] but is 'import'. @ line 84, column 11
+[WARNING] 'dependencies.dependency.scope' for hibernate-jpa:hibernate-jpa:jar must be one of [provided, compile, runtime, test, system] but is 'import'. @ line 91, column 11
+[WARNING] 'dependencies.dependency.scope' for iText:iText:jar must be one of [provided, compile, runtime, test, system] but is 'import'. @ line 97, column 11
+[WARNING] 'dependencies.dependency.scope' for jasperreports:jasperreports:jar must be one of [provided, compile, runtime, test, system] but is 'import'. @ line 103, column 11
+[WARNING] 'dependencies.dependency.scope' for javassist:javassist:jar must be one of [provided, compile, runtime, test, system] but is 'import'. @ line 109, column 11
+[WARNING] 'dependencies.dependency.scope' for jboss-logging:jboss-logging:jar must be one of [provided, compile, runtime, test, system] but is 'import'. @ line 115, column 11
+[WARNING] 'dependencies.dependency.scope' for jboss-transaction-api_1.1_spec:jboss-transaction-api_1.1_spec:jar must be one of [provided, compile, runtime, test, system] but is 'import'. @ line 121, column 11
+[WARNING] 'dependencies.dependency.scope' for joda-time:joda-time:jar must be one of [provided, compile, runtime, test, system] but is 'import'. @ line 127, column 11
+[WARNING] 'dependencies.dependency.scope' for my-fonts:my-fonts:jar must be one of [provided, compile, runtime, test, system] but is 'import'. @ line 133, column 11
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building controleestoque 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[WARNING] The POM for hibernate-commons-annotations:hibernate-commons-annotations:jar:4.0.2 is missing, no dependency information available
+[WARNING] The POM for hibernate-core:hibernate-core:jar:4.2.3 is missing, no dependency information available
+[WARNING] The POM for hibernate-entitymanager:hibernate-entitymanager:jar:4.2.3 is missing, no dependency information available
+[WARNING] The POM for hibernate-jpa:hibernate-jpa:jar:2.0 is missing, no dependency information available
+[WARNING] The POM for iText:iText:jar:2.1.7 is missing, no dependency information available
+[WARNING] The POM for jasperreports:jasperreports:jar:5.1.2 is missing, no dependency information available
+[WARNING] The POM for javassist:javassist:jar:3.15.0-GA is missing, no dependency information available
+[WARNING] The POM for jboss-logging:jboss-logging:jar:3.1.0-GA is missing, no dependency information available
+[WARNING] The POM for jboss-transaction-api_1.1_spec:jboss-transaction-api_1.1_spec:jar:1.0.1 is missing, no dependency information available
+[WARNING] The POM for my-fonts:my-fonts:jar:1.0.1 is missing, no dependency information available
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.593 s
+[INFO] Finished at: 2014-10-12T15:02:34+01:00
+[INFO] Final Memory: 5M/76M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project controleestoque: Could not resolve dependencies for project br.com.marcospcruz:controleestoque:jar:1.0-SNAPSHOT: The following artifacts could not be resolved: hibernate-commons-annotations:hibernate-commons-annotations:jar:4.0.2, hibernate-core:hibernate-core:jar:4.2.3, hibernate-entitymanager:hibernate-entitymanager:jar:4.2.3, hibernate-jpa:hibernate-jpa:jar:2.0, iText:iText:jar:2.1.7, jasperreports:jasperreports:jar:5.1.2, javassist:javassist:jar:3.15.0-GA, jboss-logging:jboss-logging:jar:3.1.0-GA, jboss-transaction-api_1.1_spec:jboss-transaction-api_1.1_spec:jar:1.0.1: Failure to find hibernate-commons-annotations:hibernate-commons-annotations:jar:4.0.2 in file://C:\Users\Marcos\workspace\controleestoque/lib was cached in the local repository, resolution will not be reattempted until the update interval of repo has elapsed or updates are forced -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
