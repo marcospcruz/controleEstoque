@@ -26,6 +26,7 @@ import br.com.marcospcruz.controleestoque.controller.ProdutoController;
 import br.com.marcospcruz.controleestoque.model.Produto;
 import br.com.marcospcruz.controleestoque.model.SubTipoProduto;
 import br.com.marcospcruz.controleestoque.model.TipoProduto;
+import br.com.marcospcruz.controleestoque.util.ConstantesEnum;
 import br.com.marcospcruz.controleestoque.util.MyFormatador;
 import br.com.marcospcruz.controleestoque.util.NumberDocument;
 
@@ -36,14 +37,12 @@ public class ProdutoDialog extends AbstractDialog {
 	 */
 	private static final long serialVersionUID = -2443699410031970101L;
 
-	private static Object[] COLUNAS_TABLE_MODEL = { "Código", "Tipo Produto",
-			"Descrição", "Un. Medida", "Valor Unitário" };
-
-	private static final String CONFIRMA_EXCLUSAO_MESSAGE = "Deseja realmente excluir este item?";
-
-	private static final String SELECAO_TIPO_INVALIDA_MESSAGE = "Seleção de Tipo de Produto inválida.";
-
-	private static final String SELECAO_SUB_TIPO_INVALIDA = "Seleção de Sub-Tipo de Produto inválida";
+	private static Object[] COLUNAS_TABLE_MODEL = {
+			ConstantesEnum.CODIGO_LABEL.getValue().toString(),
+			ConstantesEnum.TIPO_PRODUTO_LABEL.getValue().toString(),
+			ConstantesEnum.DESCRICAO_LABEL.getValue().toString(),
+			ConstantesEnum.UNIDADE_MEDIDA_LABEL.getValue().toString(),
+			ConstantesEnum.VALOR_UNITARIO_LABEL.getValue().toString() };
 
 	private static final String DESCRICAO_LABEL = (String) COLUNAS_TABLE_MODEL[2]
 			+ ":";
@@ -74,7 +73,6 @@ public class ProdutoDialog extends AbstractDialog {
 
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent arg0) {
 
 		String actionCommand = arg0.getActionCommand();
@@ -169,9 +167,7 @@ public class ProdutoDialog extends AbstractDialog {
 	@Override
 	protected void excluiItem() throws Exception {
 
-		int confirmacao = JOptionPane.showConfirmDialog(null,
-				"Confirmar Exclusï¿½o", CONFIRMA_EXCLUSAO_MESSAGE,
-				JOptionPane.YES_NO_OPTION);
+		int confirmacao = confirmaExclusaoItem();
 
 		if (confirmacao == 0) {
 
@@ -194,11 +190,15 @@ public class ProdutoDialog extends AbstractDialog {
 
 		if (cmbTiposDeProduto.getSelectedIndex() == 0) {
 
-			throw new Exception(SELECAO_TIPO_INVALIDA_MESSAGE);
+			throw new Exception(
+					ConstantesEnum.SELECAO_TIPO_PRODUTO_INVALIDA_EXCEPTION_MESSAGE
+							.getValue().toString());
 
 		} else if (cmbSubTiposDeProduto.getSelectedIndex() == 0)
 
-			throw new Exception(SELECAO_SUB_TIPO_INVALIDA);
+			throw new Exception(
+					ConstantesEnum.SELECAO_SUB_TIPO_PRODUTO_INVALIDA_EXCEPTION_MESSAGE
+							.getValue().toString());
 
 		Object tipoProduto = cmbTiposDeProduto.getSelectedItem();
 
@@ -313,7 +313,6 @@ public class ProdutoDialog extends AbstractDialog {
 
 	}
 
-	@Override
 	public void mouseClicked(MouseEvent e) {
 
 		if (e.getSource() instanceof JTable) {

@@ -1,5 +1,7 @@
 package br.com.marcospcruz;
 
+import br.com.marcospcruz.controleestoque.view.PrincipalGUI;
+
 /**
  * Hello world!
  *
@@ -8,6 +10,6 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        new PrincipalGUI("teste");
     }
 }

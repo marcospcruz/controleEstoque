@@ -20,18 +20,14 @@ import javax.swing.border.TitledBorder;
 import br.com.marcospcruz.controleestoque.controller.EstoqueController;
 import br.com.marcospcruz.controleestoque.controller.ProdutoController;
 import br.com.marcospcruz.controleestoque.model.Produto;
+import br.com.marcospcruz.controleestoque.util.ConstantesEnum;
 
 public class ItemEstoqueDialog extends AbstractDialog {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -5400606071268553023L;
-
-	private static final String MESSAGE_EXCEPTION = "Produto j� existente no Estoque!";
-	private static final String MESSAGE_EXCEPTION_2 = "É necessário selecionar um Produto na Lista.";
-	private static final String MESSAGE_EXCEPTION_3 = "Seleção inválida!";
-
+	private static final long serialVersionUID = -3124929220441244866L;
 	private JComboBox cmbProduto;
 	private JFormattedTextField txtQuantidadeInicial;
 	private JButton btnAdicionarItem;
@@ -125,7 +121,9 @@ public class ItemEstoqueDialog extends AbstractDialog {
 
 			// atualizaView();
 
-			throw new Exception(MESSAGE_EXCEPTION_2);
+			throw new Exception(
+					ConstantesEnum.PRODUTO_NECESSARIO_SELECIONAR_ALERTA
+							.getValue().toString());
 
 		}
 
@@ -133,7 +131,8 @@ public class ItemEstoqueDialog extends AbstractDialog {
 
 		if (cmbProduto.getSelectedIndex() == 0) {
 
-			throw new Exception(MESSAGE_EXCEPTION_3);
+			throw new Exception(ConstantesEnum.SELECAO_INVALIDA.getValue()
+					.toString());
 
 		}
 
@@ -141,7 +140,9 @@ public class ItemEstoqueDialog extends AbstractDialog {
 
 			controller.anulaAtributos();
 
-			throw new Exception(MESSAGE_EXCEPTION);
+			throw new Exception(
+					ConstantesEnum.PRODUTO_JA_EXISTENTE_MESSAGE_EXCEPTION
+							.getValue().toString());
 
 		}
 
@@ -149,7 +150,6 @@ public class ItemEstoqueDialog extends AbstractDialog {
 
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent arg0) {
 
 		String mensagem = "";
@@ -188,7 +188,6 @@ public class ItemEstoqueDialog extends AbstractDialog {
 
 	}
 
-	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 
@@ -245,13 +244,13 @@ public class ItemEstoqueDialog extends AbstractDialog {
 	@Override
 	protected void selecionaAcao(String actionCommand) throws Exception {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	protected void excluiItem() throws Exception {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

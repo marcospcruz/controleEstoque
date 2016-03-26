@@ -34,6 +34,7 @@ import br.com.marcospcruz.controleestoque.controller.EstoqueController;
 import br.com.marcospcruz.controleestoque.controller.relatorio.RelatorioEstoqueGeral;
 import br.com.marcospcruz.controleestoque.model.ItemEstoque;
 import br.com.marcospcruz.controleestoque.model.SubTipoProduto;
+import br.com.marcospcruz.controleestoque.util.ConstantesEnum;
 import br.com.marcospcruz.controleestoque.util.MyFormatador;
 import br.com.marcospcruz.controleestoque.view.util.MyTableModel;
 
@@ -45,27 +46,14 @@ public class PrincipalGUI extends JFrame implements ActionListener,
 	 */
 	private static final long serialVersionUID = 2191305646130817805L;
 
-	private static final Object[] COLUNAS_JTABLE = { "Código Estoque",
-			"Categoria", "Tipo Item", "Descrição Item", "Quantidade",
-			"Valor Unitário", "Valor Total" };
-
-	private static final String SIMBOLO_MONETARIO_BR = "R$";
-
-	private static final String LBL_BTN_RELATORIO = "Relatório de Estoque (PDF)";
-
-	private static final String LBL_BTN_PRODUTO = "Produto";
-
-	private static final String LBL_BTN_TIPO_PRODUTO = "Tipos de Produto";
-
-	private static final String LBL_BTN_NOVO_ITEM_ESTOQUE = "Novo Item Estoque";
-
-	private static final String LBL_BTN_LIMPAR = "Limpar";
-
-	private static final String CONSULTA_ESTOQUE = "Consulta Estoque";
-
-	private static final String DESCRICAO_ITEM_LABEL = "Descrição Item";
-
-	private static final String RELATORIO_TITLE_BORDER = "Relatórios";
+	private static final Object[] COLUNAS_JTABLE = {
+			ConstantesEnum.CODIGO_LABEL.getValue().toString(),
+			ConstantesEnum.CATEGORIA_LABEL.getValue().toString(),
+			ConstantesEnum.TIPO_ITEM_LABEL.getValue().toString(),
+			ConstantesEnum.DESCRICAO_ITEM_LABEL.getValue().toString(),
+			ConstantesEnum.QUANTIDADE_LABEL.getValue().toString(),
+			ConstantesEnum.VALOR_UNITARIO_LABEL.getValue().toString(),
+			ConstantesEnum.VALOR_TOTAL_LABEL.getValue().toString() };
 
 	private JPanel jPanelEstoque;
 
@@ -76,16 +64,6 @@ public class PrincipalGUI extends JFrame implements ActionListener,
 	private JButton btnTipoProduto;
 
 	private JButton btnProduto;
-
-	private JLabel lblCodigo;
-
-	private JLabel lblDescricaoTipoProduto;
-
-	private JLabel lblDescricaoProduto;
-
-	private JLabel lblValorUnitario;
-
-	private JFormattedTextField txtQuantidade;
 
 	private JFormattedTextField txtBuscaDescricaoProduto;
 
@@ -256,10 +234,13 @@ public class PrincipalGUI extends JFrame implements ActionListener,
 		float valor = itemEstoque.getQuantidade()
 				* itemEstoque.getProduto().getValorUnitario();
 
-		String valorTotal = SIMBOLO_MONETARIO_BR
+		String simboloMonetarioBr = ConstantesEnum.SIMBOLO_MONETARIO_BR
+				.getValue().toString();
+
+		String valorTotal = simboloMonetarioBr
 				+ MyFormatador.formataStringDecimais(valor);
 
-		String valorUnitario = SIMBOLO_MONETARIO_BR
+		String valorUnitario = simboloMonetarioBr
 				+ MyFormatador.formataStringDecimais(itemEstoque.getProduto()
 						.getValorUnitario());
 
@@ -294,7 +275,8 @@ public class PrincipalGUI extends JFrame implements ActionListener,
 
 		panel.setBorder(new TitledBorder(""));
 
-		btnNovoItemEstoque = inicializaJButton(LBL_BTN_NOVO_ITEM_ESTOQUE);
+		btnNovoItemEstoque = inicializaJButton(ConstantesEnum.LBL_BTN_NOVO_ITEM_ESTOQUE
+				.getValue().toString());
 
 		panel.add(btnNovoItemEstoque);
 
@@ -320,7 +302,8 @@ public class PrincipalGUI extends JFrame implements ActionListener,
 
 		JPanel panel = new JPanel();
 
-		panel.add(new JLabel(DESCRICAO_ITEM_LABEL));
+		panel.add(new JLabel(ConstantesEnum.DESCRICAO_ITEM_LABEL.getValue()
+				.toString()));
 
 		txtBuscaDescricaoProduto = new JFormattedTextField();
 
@@ -366,9 +349,11 @@ public class PrincipalGUI extends JFrame implements ActionListener,
 
 		JPanel panel = new JPanel();
 
-		panel.setBorder(new TitledBorder(RELATORIO_TITLE_BORDER));
+		panel.setBorder(new TitledBorder(ConstantesEnum.RELATORIO_TITLE_BORDER
+				.getValue().toString()));
 
-		btnRelatorioGeralEstoque = inicializaJButton(LBL_BTN_RELATORIO);
+		btnRelatorioGeralEstoque = inicializaJButton(ConstantesEnum.LBL_BTN_RELATORIO
+				.getValue().toString());
 
 		panel.add(btnRelatorioGeralEstoque);
 
@@ -379,12 +364,14 @@ public class PrincipalGUI extends JFrame implements ActionListener,
 
 		Rectangle retangulo = new Rectangle(10, 100, 130, 50);
 
-		btnTipoProduto = inicializaJButton(LBL_BTN_TIPO_PRODUTO, retangulo);
+		btnTipoProduto = inicializaJButton(ConstantesEnum.LBL_BTN_TIPO_PRODUTO
+				.getValue().toString(), retangulo);
 
 		jPanelCadastros.add(btnTipoProduto);
 
-		btnProduto = inicializaJButton(LBL_BTN_PRODUTO,
-				btnTipoProduto.getWidth() + 20, 100, 130, 50);
+		btnProduto = inicializaJButton(ConstantesEnum.PRODUTO_LABEL
+				.getValue().toString(), btnTipoProduto.getWidth() + 20, 100,
+				130, 50);
 
 		jPanelCadastros.add(btnProduto);
 
@@ -420,7 +407,6 @@ public class PrincipalGUI extends JFrame implements ActionListener,
 
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 
 		try {
@@ -442,27 +428,32 @@ public class PrincipalGUI extends JFrame implements ActionListener,
 
 	private void selecionaAcao(String actionCommand) throws Exception {
 
-		if (actionCommand.equals(LBL_BTN_NOVO_ITEM_ESTOQUE)) {
+		if (actionCommand.equals(ConstantesEnum.LBL_BTN_NOVO_ITEM_ESTOQUE
+				.getValue().toString())) {
 
 			new ItemEstoqueDialog(controller, this);
 
-		} else if (actionCommand.equals(LBL_BTN_RELATORIO)) {
+		} else if (actionCommand.equals(ConstantesEnum.LBL_BTN_RELATORIO
+				.getValue().toString())) {
 
 			RelatorioEstoqueGeral printer = new RelatorioEstoqueGeral();
 
 			printer.gerarRelatorio();
 
-		} else if (actionCommand.equals(CONSULTA_ESTOQUE)) {
+		} else if (actionCommand.equals(ConstantesEnum.CONSULTA_ESTOQUE
+				.getValue().toString())) {
 
 			buscaItemEstoque();
 
-		} else if (actionCommand.equals(LBL_BTN_TIPO_PRODUTO)) {
+		} else if (actionCommand.equals(ConstantesEnum.LBL_BTN_TIPO_PRODUTO
+				.getValue().toString())) {
 
 			new TipoProdutoDialog(this);
 
 			// atualizaView();
 
-		} else if (actionCommand.equals(LBL_BTN_PRODUTO)) {
+		} else if (actionCommand.equals(ConstantesEnum.PRODUTO_LABEL
+				.getValue().toString())) {
 
 			new ProdutoDialog(this);
 
@@ -470,7 +461,8 @@ public class PrincipalGUI extends JFrame implements ActionListener,
 
 			controller.anulaAtributos();
 
-		} else if (actionCommand.equals(LBL_BTN_LIMPAR)) {
+		} else if (actionCommand.equals(ConstantesEnum.LBL_BTN_LIMPAR
+				.getValue().toString())) {
 
 			controller.anulaAtributos();
 
@@ -561,7 +553,6 @@ public class PrincipalGUI extends JFrame implements ActionListener,
 
 	}
 
-	@Override
 	public void mouseClicked(MouseEvent e) {
 
 		if (e.getSource() instanceof JTable) {
@@ -585,25 +576,21 @@ public class PrincipalGUI extends JFrame implements ActionListener,
 
 	}
 
-	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 

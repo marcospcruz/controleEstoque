@@ -20,19 +20,16 @@ public class MyTableModel extends AbstractTableModel {
 
 	}
 
-	@Override
 	public int getColumnCount() {
 
 		return colunas.length;
 	}
 
-	@Override
 	public int getRowCount() {
 
 		return linhas.size();
 	}
 
-	@Override
 	public Object getValueAt(int linha, int coluna) {
 
 		Object[] array = (Object[]) linhas.get(linha);
@@ -41,7 +38,6 @@ public class MyTableModel extends AbstractTableModel {
 
 	}
 
-	@Override
 	public String getColumnName(int col) {
 
 		return colunas[col].toString();

@@ -20,17 +20,17 @@ public class App {
 	 */
 	private static void initApp() {
 
-		File file = new File(CONTROLE_ESTOQUE_HOME);
-
-		if (!file.exists()) {
-
-			file.mkdir();
-
-			File subdir = new File(DB_HOME);
-
-			subdir.mkdir();
-
-		}
+		// File file = new File(CONTROLE_ESTOQUE_HOME);
+		//
+		// if (!file.exists()) {
+		//
+		// file.mkdir();
+		//
+		// File subdir = new File(DB_HOME);
+		//
+		// subdir.mkdir();
+		//
+		// }
 
 		new PrincipalGUI("Controle de Estoque");
 

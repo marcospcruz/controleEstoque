@@ -17,6 +17,7 @@ import javax.swing.JTable;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
+import br.com.marcospcruz.controleestoque.util.ConstantesEnum;
 import br.com.marcospcruz.controleestoque.util.NumberDocument;
 import br.com.marcospcruz.controleestoque.view.util.MyTableModel;
 
@@ -36,11 +37,14 @@ public abstract class AbstractDialog extends JDialog implements ActionListener,
 
 	protected static final int TXT_HEIGHT = 20;
 
-	protected static final String ITEM_ZERO_COMBO = "Selecione uma Opção";
+	protected static final String ITEM_ZERO_COMBO = ConstantesEnum.SELECIONE_PRIMEIRA_MSG
+			.getValue().toString();
 
-	protected static final String TITLE_CONFIRMING_DELETE = "Confirmar Exclusão";
+	protected static final String TITLE_CONFIRMING_DELETE = ConstantesEnum.CONFIRMACAO_EXCLUSAO_TITLE
+			.getValue().toString();
 
-	protected static final String MESSAGE_CONFIRMING_DELETE = "Deseja realmente excluir este item?";
+	protected static final String MESSAGE_CONFIRMING_DELETE = ConstantesEnum.CONFIRMACAO_EXCLUSAO
+			.getValue().toString();
 
 	private JButton btnNovo;
 	private JButton btnSalvar;
@@ -190,25 +194,21 @@ public abstract class AbstractDialog extends JDialog implements ActionListener,
 		return txtField;
 	}
 
-	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 

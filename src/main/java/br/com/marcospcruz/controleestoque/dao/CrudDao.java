@@ -25,7 +25,7 @@ public class CrudDao<T> implements Crud<T> {
 	}
 
 	/**
-	 * Método responsável pela inicialização do EntityManagerFactory e
+	 * Mï¿½todo responsï¿½vel pela inicializaï¿½ï¿½o do EntityManagerFactory e
 	 * EntityManager
 	 */
 	private void inicializaEntityManager() {
@@ -43,13 +43,11 @@ public class CrudDao<T> implements Crud<T> {
 
 	}
 
-	@Override
 	public T select(int id) {
 
 		return null;
 	}
 
-	@Override
 	public T update(T entity) {
 
 		inicializaEntityManager();
@@ -76,7 +74,6 @@ public class CrudDao<T> implements Crud<T> {
 
 	}
 
-	@Override
 	public void delete(T entity) {
 
 		entityManager.getTransaction().begin();
@@ -89,8 +86,6 @@ public class CrudDao<T> implements Crud<T> {
 
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	@Override
 	public T busca(Class clazz, int id) {
 
 		T entity = (T) entityManager.find(clazz, id);
@@ -99,8 +94,6 @@ public class CrudDao<T> implements Crud<T> {
 
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
 	public List<T> buscaList(String namedQuery, String parametro, String valor) {
 
 		inicializaEntityManager();
@@ -115,8 +108,6 @@ public class CrudDao<T> implements Crud<T> {
 
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
 	public T busca(String namedQuery, String parametro, String valor) {
 
 		inicializaEntityManager();
@@ -131,8 +122,6 @@ public class CrudDao<T> implements Crud<T> {
 
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
 	public List<T> busca(String namedQuery) {
 
 		inicializaEntityManager();

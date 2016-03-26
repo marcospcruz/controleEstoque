@@ -17,28 +17,14 @@ import javax.swing.border.TitledBorder;
 
 import br.com.marcospcruz.controleestoque.controller.EstoqueController;
 import br.com.marcospcruz.controleestoque.model.ItemEstoque;
+import br.com.marcospcruz.controleestoque.util.ConstantesEnum;
 import br.com.marcospcruz.controleestoque.util.MyFormatador;
 
 public class ItemDoEstoqueDialog extends AbstractDialog {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 6305347846351815631L;
-
-	private static final String UNIDADE_MONETARIA = "R$";
-
-	private static final String TITULO_VALOR_UNITARIO = "Valor Unitário";
-
-	private static final String TITULO_BORDA_TIPO_PECA_ROUPA = "Tipo de Produto";
-
-	private static final String TITULO_BORDA_PECA_ROUPA = "Produto";
-
-	private static final String TITULO_BORDA_CODIGO = "Código";
-
 	private JLabel lblCodigo;
-	private JLabel lblDescricaoTipoRoupa;
-	private JLabel lblDescricaoRoupa;
+	private JLabel lblDescricaoTipoProduto;
+	private JLabel lblDescricaoProduto;
 	private JLabel lblValorUnitario;
 	private JFormattedTextField txtQuantidade;
 	private JButton btnSalvar;
@@ -116,26 +102,29 @@ public class ItemDoEstoqueDialog extends AbstractDialog {
 
 		lblCodigo = new JLabel();
 
-		lblCodigo.setBorder(new TitledBorder(TITULO_BORDA_CODIGO));
+		lblCodigo.setBorder(new TitledBorder(ConstantesEnum.CODIGO_LABEL
+				.getValue().toString()));
 
 		itemEstoquePnl.add(lblCodigo);
 
-		lblDescricaoTipoRoupa = new JLabel();
+		lblDescricaoTipoProduto = new JLabel();
 
-		lblDescricaoTipoRoupa.setBorder(new TitledBorder(
-				TITULO_BORDA_TIPO_PECA_ROUPA));
+		lblDescricaoTipoProduto.setBorder(new TitledBorder(
+				ConstantesEnum.TIPO_PRODUTO_LABEL.getValue().toString()));
 
-		itemEstoquePnl.add(lblDescricaoTipoRoupa);
+		itemEstoquePnl.add(lblDescricaoTipoProduto);
 
-		lblDescricaoRoupa = new JLabel();
+		lblDescricaoProduto = new JLabel();
 
-		lblDescricaoRoupa.setBorder(new TitledBorder(TITULO_BORDA_PECA_ROUPA));
+		lblDescricaoProduto.setBorder(new TitledBorder(
+				ConstantesEnum.PRODUTO_LABEL.getValue().toString()));
 
-		itemEstoquePnl.add(lblDescricaoRoupa);
+		itemEstoquePnl.add(lblDescricaoProduto);
 
 		lblValorUnitario = new JLabel();
 
-		lblValorUnitario.setBorder(new TitledBorder(TITULO_VALOR_UNITARIO));
+		lblValorUnitario.setBorder(new TitledBorder(
+				ConstantesEnum.VALOR_UNITARIO_LABEL.getValue().toString()));
 
 		itemEstoquePnl.add(lblValorUnitario);
 
@@ -165,7 +154,8 @@ public class ItemDoEstoqueDialog extends AbstractDialog {
 				.toString()
 				+ getEspacos();
 
-		String valorUnitario = UNIDADE_MONETARIA
+		String valorUnitario = ConstantesEnum.SIMBOLO_MONETARIO_BR.getValue()
+				.toString()
 				+ MyFormatador.formataStringDecimais(item.getProduto()
 						.getValorUnitario()) + getEspacos();
 
@@ -196,17 +186,16 @@ public class ItemDoEstoqueDialog extends AbstractDialog {
 
 		lblCodigo.setText(codigo);
 
-		lblDescricaoTipoRoupa.setText(descricaoTipoRoupa);
+		lblDescricaoTipoProduto.setText(descricaoTipoRoupa);
 
 		lblValorUnitario.setText(valorUnitario);
 
 		txtQuantidade.setText(quantidade);
 
-		lblDescricaoRoupa.setText(descricaoRoupa);
+		lblDescricaoProduto.setText(descricaoRoupa);
 
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent arg0) {
 
 		String actionCommand = arg0.getActionCommand();
@@ -264,7 +253,6 @@ public class ItemDoEstoqueDialog extends AbstractDialog {
 
 	}
 
-	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 

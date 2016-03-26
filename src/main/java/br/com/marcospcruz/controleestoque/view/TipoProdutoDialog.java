@@ -22,6 +22,7 @@ import javax.swing.border.TitledBorder;
 import br.com.marcospcruz.controleestoque.controller.TipoProdutoController;
 import br.com.marcospcruz.controleestoque.model.SubTipoProduto;
 import br.com.marcospcruz.controleestoque.model.TipoProduto;
+import br.com.marcospcruz.controleestoque.util.ConstantesEnum;
 
 public class TipoProdutoDialog extends AbstractDialog {
 
@@ -30,21 +31,13 @@ public class TipoProdutoDialog extends AbstractDialog {
 	 */
 	private static final long serialVersionUID = 1224811020311576735L;
 
-	private static final Object[] COLUNAS_TABLE_MODEL = { "Código",
-			"Descrição", "Sub-Descrição" };
-
-	private static final String TITLE_MODAL_WINDOW = "Cadastro de Tipo de Produto";
-
-	private static final String TITLE_BORDER_TIPO_PRODUTO = "Tipo de Produto";
-
-	private static final String TITLE_BORDER_TIPO_DE_PRODUTO = "Tipos de Produtos";
+	private static final Object[] COLUNAS_TABLE_MODEL = {
+			ConstantesEnum.CODIGO_LABEL.getValue().toString(),
+			ConstantesEnum.DESCRICAO_LABEL.getValue().toString(),
+			ConstantesEnum.SUB_DESCRICAO_LABEL.getValue().toString() };
 
 	private static final String DESCRICAO_TIPO_PRODUTO = COLUNAS_TABLE_MODEL[1]
 			+ " / " + COLUNAS_TABLE_MODEL[2];
-
-	private static final String CONFIRMATION_REGISTRO_ATUALIZADO = "Registro atualizado com Sucesso.";
-
-	private static final String LBL_CHKBOX_SUBTIPO = "Sub-Tipo de:";
 
 	private static final String DESCRICAO_LABEL = COLUNAS_TABLE_MODEL[1] + ":";
 
@@ -63,7 +56,8 @@ public class TipoProdutoDialog extends AbstractDialog {
 	 */
 	public TipoProdutoDialog(JFrame owner) {
 
-		super(owner, TITLE_MODAL_WINDOW, true);
+		super(owner, ConstantesEnum.CADASTRO_TIPO_PRODUTO_TITLE.getValue()
+				.toString(), true);
 
 		atualizaTable = true;
 
@@ -169,7 +163,8 @@ public class TipoProdutoDialog extends AbstractDialog {
 
 		JPanel jPanel = new JPanel();
 
-		jPanel.setBorder(new TitledBorder(TITLE_BORDER_TIPO_PRODUTO));
+		jPanel.setBorder(new TitledBorder(ConstantesEnum.TIPO_PRODUTO_LABEL
+				.getValue().toString()));
 
 		jPanel.setLayout(null);
 
@@ -199,7 +194,8 @@ public class TipoProdutoDialog extends AbstractDialog {
 		//
 		// jPanel.add(cmbSexo);
 
-		chkSubTipo = new JCheckBox(LBL_CHKBOX_SUBTIPO);
+		chkSubTipo = new JCheckBox(ConstantesEnum.SUB_TIPO_DE_LABEL.getValue()
+				.toString());
 		// setBounds(10, 90, 150, 30);
 
 		chkSubTipo.setBounds(10, 45, 190, 50);
@@ -232,7 +228,8 @@ public class TipoProdutoDialog extends AbstractDialog {
 
 		jPanel.setBounds(0, y, getWidth() - 17, 320);
 
-		jPanel.setBorder(new TitledBorder(TITLE_BORDER_TIPO_DE_PRODUTO));
+		jPanel.setBorder(new TitledBorder(ConstantesEnum.TIPOS_PRODUTOS_LABEL
+				.getValue().toString()));
 
 		carregaTableModel();
 
@@ -351,7 +348,7 @@ public class TipoProdutoDialog extends AbstractDialog {
 	/**
 	 * Xxx
 	 */
-	@Override
+
 	public void actionPerformed(ActionEvent arg0) {
 
 		if (arg0.getSource() instanceof JButton) {
@@ -403,7 +400,7 @@ public class TipoProdutoDialog extends AbstractDialog {
 
 			excluiItem();
 
-		} else if (actionCommand.equals(super.NOVO_BUTTON_LBL)) {
+		} else if (actionCommand.equals(NOVO_BUTTON_LBL)) {
 
 			acaoBuscar = false;
 
@@ -428,9 +425,10 @@ public class TipoProdutoDialog extends AbstractDialog {
 					tipoProduto);
 
 			JOptionPane.showMessageDialog(this,
-					CONFIRMATION_REGISTRO_ATUALIZADO,
-					"Confirmando Atualizaï¿½ï¿½o",
-					JOptionPane.INFORMATION_MESSAGE);
+					ConstantesEnum.CONFIRMACAO_REGISTRO_ATUALIZADO.getValue()
+							.toString(),
+					ConstantesEnum.CONFIRMANDO_ATUALIZACAO_MSG_TITLE.getValue()
+							.toString(), JOptionPane.INFORMATION_MESSAGE);
 
 			limpaFormulario();
 
@@ -567,7 +565,6 @@ public class TipoProdutoDialog extends AbstractDialog {
 
 	}
 
-	@Override
 	public void mouseClicked(MouseEvent e) {
 
 		if (e.getSource() instanceof JTable) {
@@ -616,8 +613,7 @@ public class TipoProdutoDialog extends AbstractDialog {
 		}
 
 		return linhas;
-
-	}
+}
 
 	@Override
 	protected JPanel carregaJPanelBusca() {
