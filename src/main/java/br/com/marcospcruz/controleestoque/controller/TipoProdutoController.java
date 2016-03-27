@@ -94,13 +94,16 @@ public class TipoProdutoController extends AbstractController {
 
 		try {
 
-			tipoProduto = tipoProdutoDao.busca("tipoProduto.readParametro",
-					"descricao", descricao.toLowerCase());
+			if (tipoProduto == null) {
 
-			tipoProduto = null;
+				tipoProduto = tipoProdutoDao.busca("tipoProduto.readParametro",
+						"descricao", descricao.toLowerCase());
 
-			throw new Exception(TIPO_PRODUTO_JA_CADASTRADO);
+				tipoProduto = null;
 
+				throw new Exception(TIPO_PRODUTO_JA_CADASTRADO);
+
+			}
 		} catch (NoResultException e) {
 
 			e.printStackTrace();

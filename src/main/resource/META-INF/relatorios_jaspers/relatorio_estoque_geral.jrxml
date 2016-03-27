@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 5.6.2.final using JasperReports Library version 5.6.1  -->
-<!-- 2014-10-12T11:56:06 -->
+<!-- Created with Jaspersoft Studio version 6.2.1.final using JasperReports Library version 6.2.1  -->
+<!-- 2016-03-27T12:43:11 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="teste" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6214feb1-d1e7-43ba-9412-bc71b7e29275">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="ireport.zoom" value="2.0"/>
@@ -41,7 +41,7 @@
 		<band height="89" splitType="Stretch">
 			<image>
 				<reportElement x="0" y="0" width="80" height="83" uuid="786b006f-5174-4f67-b057-9c15a29a1759"/>
-				<imageExpression><![CDATA["C:/controleestoque/img/logo_marca.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["..//logo_marca.jpg"]]></imageExpression>
 			</image>
 			<textField pattern="dd/MM/yyyy h:mm a">
 				<reportElement x="439" y="0" width="114" height="20" uuid="99095b34-eee7-4255-a418-ab983beaa535"/>
