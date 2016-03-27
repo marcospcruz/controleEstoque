@@ -11,14 +11,20 @@ public enum ConstantesEnum {
 			21), SUB_TIPO_DE_LABEL(22), SELECIONE_PRIMEIRA_MSG(23), CONFIRMACAO_EXCLUSAO_TITLE(
 			24), CONFIRMACAO_EXCLUSAO(25), UNIDADE_MEDIDA_LABEL(26), SELECAO_TIPO_PRODUTO_INVALIDA_EXCEPTION_MESSAGE(
 			27), SELECAO_SUB_TIPO_PRODUTO_INVALIDA_EXCEPTION_MESSAGE(28), PRODUTO_JA_EXISTENTE_MESSAGE_EXCEPTION(
-			29), PRODUTO_NECESSARIO_SELECIONAR_ALERTA(30), SELECAO_INVALIDA(31);
+			29), PRODUTO_NECESSARIO_SELECIONAR_ALERTA(30), SELECAO_INVALIDA(31), CONFIRMACAO_SALVAMENTO(
+			32), CONFIRMACAO_SALVAMENTO_TITLE(33), TIPO_PRODUTO_NAO_ENCONTRADO(
+			34), TIPO_ITEM_INVALIDO(35), REMOCAO_INVALIDA_EXCEPTION(36), TIPO_PRODUTO_SELECAO_MESSAGE_EXCEPTION(
+			37), TIPO_PRODUTO_JA_CADASTRADO(38), TIPO_PRODUTO_POPULADO(39), TIPO_PRODUTO_POPULADO_SUPERTIPO(
+			40), ERROR_MESSAGE_LOGO_MARCA(41), ITEM_DO_ESTOQUE_EXCEPTION_SALVAMENTO(
+			42), EXCLUSAO_PRODUTO_COM_ITENS_ESTOQUE(43);
 	private int index;
 
 	ConstantesEnum(int index) {
 		this.index = index;
 	}
 
-	private Object values[] = { "R$",// 0
+	private Object values[] = {
+			"R$",// 0
 			"Relatório de Estoque (PDF)",// 1
 			"Produto",// 2
 			"Tipos de Produto",// 3
@@ -49,7 +55,20 @@ public enum ConstantesEnum {
 			"Seleção de Sub-Tipo de Produto inválida",// 28
 			"Produto já existente no Estoque!",// 29
 			"É necessário selecionar um Produto na Lista.",// 30
-			"Seleção inválida!" };
+			"Seleção inválida!",// 31
+			"Deseja salvar este item?",// 32
+			"Confirmar salvamento!",// 33
+			"Tipo de Produto não encontrado.",// 34
+			"Tipo de Produto Inválido",// 35
+			"Necessário efetuar a busca do Registro antes de Excluir.",// 36
+			"Selecione um Tipo de Produto válido!",// 37
+			"Tipo Produto já Cadastrado com esta Descrição!",// 38
+			"Este Tipo de Produto contém Produtos associados a ele.",// 39
+			"Este Tipo de Produto contém Sub-Tipos de Produtos associados a ele.",// 40
+			"Logo Marca não encontrada.",// 41
+			"É necessário selecionar um ítem de Estoque antes.",// 42
+			"Exclusão não permitida! Há ítens deste Produto no estoque."// 43
+	};
 
 	public Object getValue() {
 		return values[index];

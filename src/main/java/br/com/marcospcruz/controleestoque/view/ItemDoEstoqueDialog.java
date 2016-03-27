@@ -196,6 +196,9 @@ public class ItemDoEstoqueDialog extends AbstractDialog {
 
 	}
 
+	/**
+	 * xxx
+	 */
 	public void actionPerformed(ActionEvent arg0) {
 
 		String actionCommand = arg0.getActionCommand();
@@ -208,40 +211,19 @@ public class ItemDoEstoqueDialog extends AbstractDialog {
 		}
 	}
 
-	/*
-	 * x
-	 */
-	private void atualizaItemEstoque() throws Exception {
-
-		if (controller.getItemEstoque() == null) {
-
-			throw new Exception(
-					"� necess�rio selecionar um �tem de Estoque antes.");
-
-		} else {
-
-			int quantidade = new Integer(txtQuantidade.getText());
-
-			controller.atualizaItem(quantidade);
-
-			dispose();
-
-		}
-
-	}
-
 	protected void excluiItem() throws Exception {
 
 		if (controller.getItemEstoque() == null) {
 
 			throw new Exception(
-					"� necess�rio selecionar um �tem no Estoque antes de Excluir.");
+					"É necessário selecionar um Ítem no Estoque antes de Excluir.");
 
 		}
 
-		int confirmacao = JOptionPane.showConfirmDialog(null,
-				"Confirmar Exclus�o", "Deseja realmente excluir este item?",
-				JOptionPane.YES_NO_OPTION);
+		int confirmacao = confirmaExclusaoItem();
+		// JOptionPane.showConfirmDialog(null,
+		// "Confirmar Exclusão", "Deseja realmente excluir este item?",
+		// JOptionPane.YES_NO_OPTION);
 
 		if (confirmacao == 0) {
 
@@ -311,11 +293,33 @@ public class ItemDoEstoqueDialog extends AbstractDialog {
 
 		if (actionCommand.equals(SALVAR_BUTTON_LBL)) {
 
-			atualizaItemEstoque();
+			salvarItem();
 
 		} else if (actionCommand.equals(EXCLUIR_BUTTON_LBL)) {
 
 			excluiItem();
+
+		}
+
+	}
+
+	@Override
+	protected void salvarItem() throws Exception {
+		// TODO Auto-generated method stub
+
+		if (controller.getItemEstoque() == null) {
+
+			throw new Exception(
+					ConstantesEnum.ITEM_DO_ESTOQUE_EXCEPTION_SALVAMENTO
+							.getValue().toString());
+
+		} else {
+
+			int quantidade = new Integer(txtQuantidade.getText());
+
+			controller.atualizaItem(quantidade);
+
+			dispose();
 
 		}
 

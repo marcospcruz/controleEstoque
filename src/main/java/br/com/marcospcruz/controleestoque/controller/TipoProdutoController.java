@@ -9,10 +9,11 @@ import br.com.marcospcruz.controleestoque.dao.Crud;
 import br.com.marcospcruz.controleestoque.dao.CrudDao;
 import br.com.marcospcruz.controleestoque.model.SubTipoProduto;
 import br.com.marcospcruz.controleestoque.model.TipoProduto;
+import br.com.marcospcruz.controleestoque.util.ConstantesEnum;
 import br.com.marcospcruz.controleestoque.util.TipoProdutoNotFoundException;
 
 /**
- * Classe responsável em gerenciar regras de negócio para Tipos de Peças de
+ * Classe responsï¿½vel em gerenciar regras de negï¿½cio para Tipos de Peï¿½as de
  * Roupas.
  * 
  * @author Marcos
@@ -20,19 +21,26 @@ import br.com.marcospcruz.controleestoque.util.TipoProdutoNotFoundException;
  */
 public class TipoProdutoController extends AbstractController {
 
-	private static final String RESULTADO_NAO_ENCONTRADO = "Tipo de Produto não encontrado.";
+	private static final String RESULTADO_NAO_ENCONTRADO = ConstantesEnum.TIPO_PRODUTO_NAO_ENCONTRADO
+			.getValue().toString();
 
-	private static final String TIPO_ITEM_INVALIDO = "Tipo de Produto Inválido";
+	private static final String TIPO_ITEM_INVALIDO = ConstantesEnum.TIPO_ITEM_INVALIDO
+			.getValue().toString();
 
-	private static final String REMOCAO_INVALIDA_EXCEPTION = "Necessário efetuar a busca do Elemento antes de Excluir.";
+	private static final String REMOCAO_INVALIDA_EXCEPTION = ConstantesEnum.REMOCAO_INVALIDA_EXCEPTION
+			.getValue().toString();
 
-	private static final String SELECIONE_TIPO_PRODUTO_EXCEPTION = "Selecione um Tipo de Produto válido!";
+	private static final String SELECIONE_TIPO_PRODUTO_EXCEPTION = ConstantesEnum.TIPO_PRODUTO_SELECAO_MESSAGE_EXCEPTION
+			.getValue().toString();
 
-	private static final String TIPO_PRODUTO_JA_CADASTRADO = "Tipo Produto já Cadastrado com esta Descrição!";
+	private static final String TIPO_PRODUTO_JA_CADASTRADO = ConstantesEnum.TIPO_PRODUTO_JA_CADASTRADO
+			.getValue().toString();
 
-	private static final String REMOCAO_TIPO_POPULADO = "Este Tipo de Produto contém Produtos associados a ele.";
+	private static final String REMOCAO_TIPO_POPULADO = ConstantesEnum.TIPO_PRODUTO_POPULADO
+			.getValue().toString();
 
-	private static final String REMOCAO_SUPERTIPO_POPULADO = "Este Tipo de Produto contém Sub-Tipos de Produtos associados a ele.";
+	private static final String REMOCAO_SUPERTIPO_POPULADO = ConstantesEnum.TIPO_PRODUTO_POPULADO_SUPERTIPO
+			.getValue().toString();
 
 	private SubTipoProduto tipoProduto;
 
@@ -41,7 +49,7 @@ public class TipoProdutoController extends AbstractController {
 	private List tiposProdutos;
 
 	/**
-	 * Método Construtor sem Parâmetros.
+	 * Mï¿½todo Construtor sem Parï¿½metros.
 	 */
 	public TipoProdutoController() {
 
@@ -52,7 +60,7 @@ public class TipoProdutoController extends AbstractController {
 	}
 
 	/**
-	 * Método responsável em salvar novo tipo de roupa ou atualizar o já
+	 * Mï¿½todo responsï¿½vel em salvar novo tipo de roupa ou atualizar o jï¿½
 	 * existente.
 	 * 
 	 * @param descricao
@@ -87,7 +95,9 @@ public class TipoProdutoController extends AbstractController {
 		try {
 
 			tipoProduto = tipoProdutoDao.busca("tipoProduto.readParametro",
-					"descricao", descricao.toUpperCase());
+					"descricao", descricao.toLowerCase());
+
+			tipoProduto = null;
 
 			throw new Exception(TIPO_PRODUTO_JA_CADASTRADO);
 
@@ -124,8 +134,8 @@ public class TipoProdutoController extends AbstractController {
 
 				tipoProduto = null;
 
-				throw new Exception("Tipo de Roupa " + descricao
-						+ " já cadastrado!");
+				throw new Exception("Tipo de Produto " + descricao
+						+ " jÃ¡ cadastrado!");
 
 			}
 

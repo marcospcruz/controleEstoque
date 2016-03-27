@@ -138,7 +138,7 @@ public class ProdutoDialog extends AbstractDialog {
 
 		if (actionCommand.equals(SALVAR_BUTTON_LBL)) {
 
-			salvaPecaRoupa();
+			salvarItem();
 
 		} else if (actionCommand.equals(NOVO_BUTTON_LBL)) {
 
@@ -178,44 +178,6 @@ public class ProdutoDialog extends AbstractDialog {
 			btnDeletar.setEnabled(false);
 
 		}
-
-	}
-
-	/**
-	 * x
-	 * 
-	 * @throws Exception
-	 */
-	private void salvaPecaRoupa() throws Exception {
-
-		if (cmbTiposDeProduto.getSelectedIndex() == 0) {
-
-			throw new Exception(
-					ConstantesEnum.SELECAO_TIPO_PRODUTO_INVALIDA_EXCEPTION_MESSAGE
-							.getValue().toString());
-
-		} else if (cmbSubTiposDeProduto.getSelectedIndex() == 0)
-
-			throw new Exception(
-					ConstantesEnum.SELECAO_SUB_TIPO_PRODUTO_INVALIDA_EXCEPTION_MESSAGE
-							.getValue().toString());
-
-		Object tipoProduto = cmbTiposDeProduto.getSelectedItem();
-
-		Object subTipoProduto = cmbSubTiposDeProduto.getSelectedItem();
-
-		String descricao = txtDescricao.getText();
-
-		String unidadeMedida = txtUnidadeMedida.getText();
-
-		String valorUnitario = txtValorUnitario.getText();
-
-		validaValorUnitario(valorUnitario);
-
-		controller.salva(tipoProduto, subTipoProduto, descricao, unidadeMedida,
-				valorUnitario);
-
-		limpaFormulario();
 
 	}
 
@@ -652,6 +614,47 @@ public class ProdutoDialog extends AbstractDialog {
 		jPanel.add(btnBusca);
 
 		return jPanel;
+
+	}
+
+	@Override
+	protected void salvarItem() throws Exception {
+		// TODO Auto-generated method stub
+
+		if (confirmaSalvamentoItem() == 0) {
+
+			if (cmbTiposDeProduto.getSelectedIndex() == 0) {
+
+				throw new Exception(
+						ConstantesEnum.SELECAO_TIPO_PRODUTO_INVALIDA_EXCEPTION_MESSAGE
+								.getValue().toString());
+
+			} else if (cmbSubTiposDeProduto.getSelectedIndex() == 0)
+
+				throw new Exception(
+						ConstantesEnum.SELECAO_SUB_TIPO_PRODUTO_INVALIDA_EXCEPTION_MESSAGE
+								.getValue().toString());
+
+			Object tipoProduto = cmbTiposDeProduto.getSelectedItem();
+
+			Object subTipoProduto = cmbSubTiposDeProduto.getSelectedItem();
+
+			String descricao = txtDescricao.getText();
+
+			String unidadeMedida = txtUnidadeMedida.getText();
+
+			String valorUnitario = txtValorUnitario.getText();
+
+			validaValorUnitario(valorUnitario);
+
+			controller.salva(tipoProduto, subTipoProduto, descricao,
+					unidadeMedida, valorUnitario);
+
+			mostraMensagemConfirmacaoSalvamento();
+
+			limpaFormulario();
+
+		}
 
 	}
 

@@ -21,6 +21,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import br.com.marcospcruz.controleestoque.App;
 import br.com.marcospcruz.controleestoque.controller.EstoqueController;
 import br.com.marcospcruz.controleestoque.model.ItemEstoque;
+import br.com.marcospcruz.controleestoque.util.ConstantesEnum;
 
 public class RelatorioEstoqueGeral {
 
@@ -93,7 +94,8 @@ public class RelatorioEstoqueGeral {
 
 			e.printStackTrace();
 
-			throw new Exception("Logo Marca n�o encontrada. ");
+			throw new Exception(ConstantesEnum.ERROR_MESSAGE_LOGO_MARCA
+					.getValue().toString());
 
 		}
 

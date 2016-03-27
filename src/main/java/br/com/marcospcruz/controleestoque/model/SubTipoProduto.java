@@ -19,7 +19,7 @@ import org.hibernate.annotations.FetchMode;
 @NamedQueries({
 		@NamedQuery(name = "tipoProduto.readAll", query = "select distinct t from SubTipoProduto t LEFT JOIN FETCH t.subTiposProduto order by t.descricaoTipo"),
 		@NamedQuery(name = "tipoProduto.readtiposabstratos", query = "select distinct t from SubTipoProduto t LEFT JOIN FETCH t.subTiposProduto where t.superTipoProduto is null order by t.descricaoTipo"),
-		@NamedQuery(name = "tipoProduto.readParametro", query = "select distinct t from SubTipoProduto t LEFT JOIN FETCH t.subTiposProduto where UPPER(t.descricaoTipo) = :descricao"),
+		@NamedQuery(name = "tipoProduto.readParametro", query = "select distinct t from SubTipoProduto t LEFT JOIN FETCH t.subTiposProduto where lower(t.descricaoTipo) = :descricao"),
 		@NamedQuery(name = "tipoProduto.readParametroLike", query = "select distinct t from SubTipoProduto t LEFT JOIN FETCH t.subTiposProduto where UPPER(t.descricaoTipo) like :descricao "
 		// + "and t.superTipoProduto is null"
 		) })
@@ -41,7 +41,7 @@ public class SubTipoProduto extends TipoProduto {
 	private String sexo;
 
 	/**
-	 * Método Construtor
+	 * Mï¿½todo Construtor
 	 */
 	public SubTipoProduto() {
 

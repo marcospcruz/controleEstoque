@@ -8,10 +8,11 @@ import br.com.marcospcruz.controleestoque.dao.CrudDao;
 import br.com.marcospcruz.controleestoque.model.Produto;
 import br.com.marcospcruz.controleestoque.model.SubTipoProduto;
 import br.com.marcospcruz.controleestoque.model.TipoProduto;
+import br.com.marcospcruz.controleestoque.util.ConstantesEnum;
 
 public class ProdutoController extends AbstractController {
 
-	private static final String RESULTADO_NAO_ENCONTRADO = "Produto não encontrado";
+	private static final String RESULTADO_NAO_ENCONTRADO = "Produto nï¿½o encontrado";
 
 	private List<Produto> produtos;
 
@@ -104,7 +105,7 @@ public class ProdutoController extends AbstractController {
 				|| valorUnitario.isEmpty()) {
 
 			throw new Exception(
-					"Necessário preencher todos os campos da informação.");
+					"Necessï¿½rio preencher todos os campos da informaï¿½ï¿½o.");
 
 		}
 
@@ -120,7 +121,9 @@ public class ProdutoController extends AbstractController {
 
 		if (produto.getItemEstoque() != null) {
 
-			throw new Exception("Exclusão não permitida! Há ítens no estoque.");
+			throw new Exception(
+					ConstantesEnum.EXCLUSAO_PRODUTO_COM_ITENS_ESTOQUE
+							.getValue().toString());
 
 		}
 

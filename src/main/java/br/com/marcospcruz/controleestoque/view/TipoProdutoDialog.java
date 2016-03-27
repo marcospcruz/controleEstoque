@@ -137,6 +137,8 @@ public class TipoProdutoDialog extends AbstractDialog {
 	@SuppressWarnings("rawtypes")
 	private DefaultComboBoxModel carregaComboTiposProdutoModel() {
 
+		// TipoProdutoController controller = new TipoProdutoController();
+
 		List objetos = controller.buscaTodos();
 
 		// List objetos = controller.getTiposProdutos();
@@ -251,6 +253,8 @@ public class TipoProdutoDialog extends AbstractDialog {
 	 */
 	private void atualizaTableModel() {
 
+		// TipoProdutoController controller = new TipoProdutoController();
+
 		carregaTableModel(
 				carregaLinhasTableModel(controller.getTiposProdutos()),
 				COLUNAS_TABLE_MODEL);
@@ -312,6 +316,7 @@ public class TipoProdutoDialog extends AbstractDialog {
 	@SuppressWarnings("rawtypes")
 	@Override
 	protected void carregaTableModel() {
+		// TipoProdutoController controller = new TipoProdutoController();
 
 		List linhas = carregaLinhasTableModel(controller.getTiposProdutos());
 
@@ -396,7 +401,7 @@ public class TipoProdutoDialog extends AbstractDialog {
 
 	protected void selecionaAcao(String actionCommand) throws Exception {
 
-		if (actionCommand.equals(SALVAR_BUTTON_LBL)) {
+		if (actionCommand.equals(EXCLUIR_BUTTON_LBL)) {
 
 			excluiItem();
 
@@ -412,23 +417,7 @@ public class TipoProdutoDialog extends AbstractDialog {
 
 			acaoBuscar = false;
 
-			// String sexo = cmbSexo.getSelectedIndex() == 0 ? null : cmbSexo
-			// .getSelectedItem().toString();
-
-			Object tipoProduto = cmbTiposProduto.getSelectedIndex() == 0 ? null
-					: cmbTiposProduto.getSelectedItem();
-
-			// controller.salva(txtDescricao.getText(), chkSubTipo.isSelected(),
-			// tipoProduto, sexo);
-
-			controller.salva(txtDescricao.getText(), chkSubTipo.isSelected(),
-					tipoProduto);
-
-			JOptionPane.showMessageDialog(this,
-					ConstantesEnum.CONFIRMACAO_REGISTRO_ATUALIZADO.getValue()
-							.toString(),
-					ConstantesEnum.CONFIRMANDO_ATUALIZACAO_MSG_TITLE.getValue()
-							.toString(), JOptionPane.INFORMATION_MESSAGE);
+			salvarItem();
 
 			limpaFormulario();
 
@@ -448,6 +437,8 @@ public class TipoProdutoDialog extends AbstractDialog {
 	 */
 	private void buscar() throws Exception {
 
+		// TipoProdutoController controller = new TipoProdutoController();
+
 		controller.busca(txtBusca.getText());
 
 		limpaFormulario();
@@ -463,6 +454,8 @@ public class TipoProdutoDialog extends AbstractDialog {
 	 */
 	@Override
 	protected void populaFormulario() {
+
+		// TipoProdutoController controller = new TipoProdutoController();
 
 		boolean isSubTipo = controller.getTipoPeca().getSuperTipoProduto() != null;
 
@@ -567,6 +560,8 @@ public class TipoProdutoDialog extends AbstractDialog {
 
 	public void mouseClicked(MouseEvent e) {
 
+		// TipoProdutoController controller = new TipoProdutoController();
+
 		if (e.getSource() instanceof JTable) {
 
 			JTable table = (JTable) e.getSource();
@@ -613,7 +608,7 @@ public class TipoProdutoDialog extends AbstractDialog {
 		}
 
 		return linhas;
-}
+	}
 
 	@Override
 	protected JPanel carregaJPanelBusca() {
@@ -658,6 +653,30 @@ public class TipoProdutoDialog extends AbstractDialog {
 
 		}
 
+	}
+
+	@Override
+	protected void salvarItem() throws Exception {
+		// TODO Auto-generated method stub
+		// TipoProdutoController controller = new TipoProdutoController();
+
+		if (confirmaSalvamentoItem() == 0) {
+
+			// String sexo = cmbSexo.getSelectedIndex() == 0 ? null : cmbSexo
+			// .getSelectedItem().toString();
+
+			Object tipoProduto = cmbTiposProduto.getSelectedIndex() == 0 ? null
+					: cmbTiposProduto.getSelectedItem();
+
+			// controller.salva(txtDescricao.getText(), chkSubTipo.isSelected(),
+			// tipoProduto, sexo);
+
+			controller.salva(txtDescricao.getText(), chkSubTipo.isSelected(),
+					tipoProduto);
+
+			mostraMensagemConfirmacaoSalvamento();
+
+		}
 	}
 
 }

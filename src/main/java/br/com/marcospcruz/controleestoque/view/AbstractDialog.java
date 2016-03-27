@@ -24,11 +24,6 @@ import br.com.marcospcruz.controleestoque.view.util.MyTableModel;
 public abstract class AbstractDialog extends JDialog implements ActionListener,
 		MouseListener {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -9186203868324953090L;
-
 	protected static final String NOVO_BUTTON_LBL = "Novo";
 
 	protected static final String EXCLUIR_BUTTON_LBL = "Excluir";
@@ -64,6 +59,12 @@ public abstract class AbstractDialog extends JDialog implements ActionListener,
 
 	protected static final Border BUSCAR_TITLED_BORDER = new TitledBorder(
 			"Busca");
+
+	private static final String TITLE_CONFIRMING_SAVING = ConstantesEnum.CONFIRMACAO_SALVAMENTO_TITLE
+			.getValue().toString();;
+
+	private static final String MESSAGE_CONFIRMING_SAVING = ConstantesEnum.CONFIRMACAO_SALVAMENTO
+			.getValue().toString();
 
 	public AbstractDialog(JFrame owner, String tituloJanela, boolean modal) {
 
@@ -102,6 +103,8 @@ public abstract class AbstractDialog extends JDialog implements ActionListener,
 	 * @throws Exception
 	 */
 	protected abstract void excluiItem() throws Exception;
+
+	protected abstract void salvarItem() throws Exception;
 
 	protected abstract void populaFormulario();
 
@@ -222,8 +225,32 @@ public abstract class AbstractDialog extends JDialog implements ActionListener,
 	 */
 	protected int confirmaExclusaoItem() {
 
-		return JOptionPane.showConfirmDialog(null, TITLE_CONFIRMING_DELETE,
-				MESSAGE_CONFIRMING_DELETE, JOptionPane.YES_NO_OPTION);
+		return showConfirmationMessage(TITLE_CONFIRMING_DELETE,
+				MESSAGE_CONFIRMING_DELETE);
 	}
 
+	private int showConfirmationMessage(String titleConfirmationDialog,
+			String confirmationQuestion) {
+		// TODO Auto-generated method stub
+		return JOptionPane.showConfirmDialog(null, confirmationQuestion,
+				titleConfirmationDialog, JOptionPane.YES_NO_OPTION);
+	}
+
+	protected int confirmaSalvamentoItem() {
+
+		return showConfirmationMessage(TITLE_CONFIRMING_SAVING,
+				MESSAGE_CONFIRMING_SAVING);
+
+	}
+
+	public void mostraMensagemConfirmacaoSalvamento() {
+		// TODO Auto-generated method stub
+
+		JOptionPane.showMessageDialog(this,
+				ConstantesEnum.CONFIRMACAO_REGISTRO_ATUALIZADO.getValue()
+						.toString(),
+				ConstantesEnum.CONFIRMANDO_ATUALIZACAO_MSG_TITLE.getValue()
+						.toString(), JOptionPane.INFORMATION_MESSAGE);
+
+	}
 }

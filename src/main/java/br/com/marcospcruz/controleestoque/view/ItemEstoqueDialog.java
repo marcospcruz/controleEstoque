@@ -107,49 +107,9 @@ public class ItemEstoqueDialog extends AbstractDialog {
 
 	}
 
-	private void adicionarItemEstoque() throws Exception {
-
-		Produto produto = null;
-
-		try {
-
-			produto = (Produto) cmbProduto.getSelectedItem();
-
-		} catch (ClassCastException e) {
-
-			e.printStackTrace();
-
-			// atualizaView();
-
-			throw new Exception(
-					ConstantesEnum.PRODUTO_NECESSARIO_SELECIONAR_ALERTA
-							.getValue().toString());
-
-		}
-
-		controller.buscaItemEstoque(produto.getDescricaoProduto());
-
-		if (cmbProduto.getSelectedIndex() == 0) {
-
-			throw new Exception(ConstantesEnum.SELECAO_INVALIDA.getValue()
-					.toString());
-
-		}
-
-		if (controller.getItemEstoque() != null) {
-
-			controller.anulaAtributos();
-
-			throw new Exception(
-					ConstantesEnum.PRODUTO_JA_EXISTENTE_MESSAGE_EXCEPTION
-							.getValue().toString());
-
-		}
-
-		controller.criaItemEstoque(produto, txtQuantidadeInicial.getText());
-
-	}
-
+	/**
+	 * xxx
+	 */
 	public void actionPerformed(ActionEvent arg0) {
 
 		String mensagem = "";
@@ -158,7 +118,7 @@ public class ItemEstoqueDialog extends AbstractDialog {
 
 		try {
 
-			adicionarItemEstoque();
+			salvarItem();
 
 			mensagem = "Item adicionado ao estoque com sucesso!";
 
@@ -250,6 +210,51 @@ public class ItemEstoqueDialog extends AbstractDialog {
 	@Override
 	protected void excluiItem() throws Exception {
 		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected void salvarItem() throws Exception {
+		// TODO Auto-generated method stub
+
+		Produto produto = null;
+
+		try {
+
+			produto = (Produto) cmbProduto.getSelectedItem();
+
+		} catch (ClassCastException e) {
+
+			e.printStackTrace();
+
+			// atualizaView();
+
+			throw new Exception(
+					ConstantesEnum.PRODUTO_NECESSARIO_SELECIONAR_ALERTA
+							.getValue().toString());
+
+		}
+
+		controller.buscaItemEstoque(produto.getDescricaoProduto());
+
+		if (cmbProduto.getSelectedIndex() == 0) {
+
+			throw new Exception(ConstantesEnum.SELECAO_INVALIDA.getValue()
+					.toString());
+
+		}
+
+		if (controller.getItemEstoque() != null) {
+
+			controller.anulaAtributos();
+
+			throw new Exception(
+					ConstantesEnum.PRODUTO_JA_EXISTENTE_MESSAGE_EXCEPTION
+							.getValue().toString());
+
+		}
+
+		controller.criaItemEstoque(produto, txtQuantidadeInicial.getText());
 
 	}
 
